@@ -1,0 +1,59 @@
+
+.navigation-items {
+  list-style: none;
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+}
+.navigation-items li {
+  /* display: flex; */
+  /* align-items: center; */
+  /* height: 100%; */
+}
+.navigation-items a {
+  display: block;
+  color: #8F5C2C;
+  text-decoration: none;
+  width: 100%;
+}
+
+.navigation-items a:hover,
+.navigation-items a:active,
+.navigation-items a.active {
+  color: #40A4C8;
+}
+
+
+
+/* Mobile first design */
+@media (min-width: 500px) {
+
+  .navigation-items {
+    list-style: none;
+    display: flex;
+    /* align-items: center; */
+    /* height: 100%; */
+  }
+  .navigation-items li {
+    /* display: flex; */
+    /* align-items: center; */
+    /* height: 100%; */
+  }
+  .navigation-items a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    /* height: 100%; */
+    padding: 16px 10px;
+    /* border-bottom: 4px solid transparent; */
+  }
+
+  .navigation-items a:hover,
+  .navigation-items a:active,
+  .navigation-items a.active {
+    background-color: #8F5C2C;
+    border-bottom: 4px solid #40A4C8;
+    color: white;
+  }
+
+}

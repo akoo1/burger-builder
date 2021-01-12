@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.btn {
+  background-color: rgb(27, 105, 223);
+  color: white;
+  padding: 8px;
+  margin: 0 5px;
+  width: 80px;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  outline: none;
+}

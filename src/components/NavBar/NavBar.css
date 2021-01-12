@@ -1,0 +1,29 @@
+
+.nav-bar {
+  width: 100%;
+  height: 56px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #703b09;
+  padding: 0 20px;
+  z-index: 90;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-bar nav {
+  /* height: 100%; */
+}
+
+.nav-bar-logo-box {
+  height: 80%;
+}
+
+@media (max-width: 499px) {
+  .desktop-only {
+    display: none;
+  }
+}
