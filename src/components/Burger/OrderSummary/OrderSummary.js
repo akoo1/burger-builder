@@ -22,10 +22,10 @@ const OrderSummary = (props) => {
       <p><strong>Total Price: ${props.totalPrice.toFixed(2)}</strong></p>
       <p>Continue to check out?</p>
       <button
-        className='btn order-cancel-btn'
-        onClick={() => props.closeModalHandler()}>CANCEL</button>
+        className='my-btn cancel-btn'
+        onClick={() => props.purchaseCancelHandler()}>CANCEL</button>
       <button
-        className='btn order-continue-btn'
+        className='my-btn continue-btn'
         onClick={() => props.purchaseContinueHandler()}>CONTINUE</button>
     </div>
   )

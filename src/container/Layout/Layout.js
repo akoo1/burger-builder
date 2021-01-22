@@ -12,6 +12,7 @@ class Layout extends Component {
   closeSideDrawerHandler = () => {
     this.setState({ showSideDrawer: false })
   }
+  // For mobile nav
   sideDrawerToggleHandler = () => {
     this.setState((prevState) => {
       return { showSideDrawer: !prevState.showSideDrawer }
@@ -32,6 +33,7 @@ class Layout extends Component {
       </>
     )
   }
+
 
 }
 

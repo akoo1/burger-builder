@@ -7,14 +7,33 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-.btn {
+.my-btn {
   background-color: rgb(27, 105, 223);
   color: white;
-  padding: 8px;
+  padding: 6px;
   margin: 0 5px;
   width: 80px;
   border: none;
   border-radius: 0.3rem;
   cursor: pointer;
   outline: none;
+}
+.my-btn:hover {
+  background-color: rgb(84, 131, 219);
+}
+
+.cancel-btn {
+  background-color: grey;
+  width: 100px;
+  margin: 1rem 0.5rem
+}
+.cancel-btn:hover {
+  background-color: rgb(189, 187, 187);
+}
+
+.continue-btn {
+  width: 100px;
+}
+.continue-btn:hover {
+  background-color: rgb(84, 131, 219);
 }

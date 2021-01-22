@@ -6,18 +6,3 @@
 .order-sum-list {
   margin: 1rem 2rem;
 }
-
-.order-cancel-btn {
-  background-color: grey;
-  margin: 1rem 0.5rem
-}
-.order-cancel-btn:hover {
-  background-color: rgb(189, 187, 187);
-}
-
-.order-continue-btn {
-  width: 100px;
-}
-.order-continue-btn:hover {
-  background-color: rgb(84, 131, 219);
-}

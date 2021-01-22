@@ -1,13 +1,14 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom';
 import './NavigationItems.css'
 
 const NavigationItems = (props) =>
   <ul className='navigation-items'>
     <li>
-      <a href="/" className={props.isActive ? 'active' : 'active'}>Burger Builder</a>
+      <NavLink to='/' exact>Burger Builder</NavLink>
     </li>
     <li>
-      <a href="/" className={props.isActive ? 'active' : null}>Checkout</a>
+      <NavLink to='/orders' exact>Orders</NavLink>
     </li>
   </ul>
 

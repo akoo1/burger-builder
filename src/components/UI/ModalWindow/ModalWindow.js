@@ -12,7 +12,7 @@ const ModalWindow = (props) => {
       <OrderSummary
         ingredients={props.ingredients}
         totalPrice={props.totalPrice}
-        closeModalHandler={props.closeModalHandler}
+        purchaseCancelHandler={props.purchaseCancelHandler}
         purchaseContinueHandler={props.purchaseContinueHandler}
       />
     )
@@ -27,7 +27,7 @@ const ModalWindow = (props) => {
   let modal = null;
   if (orderSummary) {
     modal = (
-      <div className='modal'>
+      <div className='order-summary-modal'>
         {orderSummary}
       </div>
     )

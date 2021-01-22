@@ -9,9 +9,9 @@ import './SideDrawer.css'
 const SideDrawer = (props) => {
 
   // To dynamically toggle the side bar
-  let attachedClasses = ['side-drawer', 'close']
+  let attachedClasses = ['side-drawer', 'side-drawer-close']
   if (props.show) {
-    attachedClasses = ['side-drawer', 'open']
+    attachedClasses = ['side-drawer', 'side-drawer-open']
   }
 
   return (

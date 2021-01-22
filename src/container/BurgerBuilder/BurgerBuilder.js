@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import axios from '../../Axios/axios-orders';
+
 import BuildControlsList from '../../components/Burger/BuildControlsList/BuildControlsList'
 import GraphicalBurger from '../../components/Burger/GraphicalBurger/GraphicalBurger'
 import ModalWindow from '../../components/UI/ModalWindow/ModalWindow'
-import axios from '../../Axios/axios-orders';
+
 
 
 const INGREDIENT_PRICES = {
@@ -15,7 +17,12 @@ const INGREDIENT_PRICES = {
 class BurgerBuilder extends Component {
 
   state = {
-    ingredients: {},
+    ingredients: {
+      meat: 0,
+      salad: 0,
+      cheese: 0,
+      bacon: 0
+    },
     totalPrice: 0,
     isPurchaseable: false,
     isPurchasing: false,
@@ -71,43 +78,29 @@ class BurgerBuilder extends Component {
     this.setState({ isPurchaseable: updatedPurchaseState })
   }
 
-  purchaseHandler = () => {
+  orderHandler = () => {
     this.setState({ isPurchasing: true })
   }
-
   closeModalHandler = () => {
     this.setState({ isPurchasing: false })
   }
+  purchaseCancelHandler = () => {
+    this.setState({ isPurchasing: false })
+  }
 
-  // storing data to our database
   purchaseContinueHandler = () => {
-    this.setState({ isLoading: true })
 
-    const order = {
-      ingredients: this.state.ingredients,
-      price: this.state.totalPrice,
-      customer: {
-        name: 'Alfred',
-        address: {
-          street: '1234 E Spring Creek PKWY',
-          zipCode: 12345,
-          country: 'Taiwan'
-        },
-        email: 'test@gmail.com'
-      },
-      deliveryMethod: 'fastest'
+    // Passing ingredients through Query Params to the Checkout page
+    const queryParams = []
+    for (let i in this.state.ingredients) {
+      queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]))
     }
-
-    axios.post('/orders.json', order)
-      .then(response => {
-        console.log(response)
-        this.setState({ isLoading: false, isPurchasing: false })
-      })
-      .catch(error => {
-        console.log(error)
-        this.setState({ isLoading: false, isPurchasing: false })
-      })
-
+    queryParams.push('price=' + this.state.totalPrice)
+    const queryString = queryParams.join('&')
+    this.props.history.push({
+      pathname: './checkout',
+      search: '?' + queryString
+    })
   }
 
 
@@ -125,6 +118,7 @@ class BurgerBuilder extends Component {
           show={this.state.isPurchasing}
           isLoading={this.state.isLoading}
           closeModalHandler={this.closeModalHandler}
+          purchaseCancelHandler={this.purchaseCancelHandler}
           purchaseContinueHandler={this.purchaseContinueHandler}
         />
 
@@ -134,7 +128,7 @@ class BurgerBuilder extends Component {
           disabledInfo={this.getDisabledInfo()}
           price={this.state.totalPrice}
           isPurchaseable={this.state.isPurchaseable}
-          purchaseHandler={this.purchaseHandler}
+          orderHandler={this.orderHandler}
         />
       </>
     )

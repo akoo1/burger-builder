@@ -1,0 +1,12 @@
+
+.order-container {
+  width: 60%;
+  margin: 1rem auto;
+  padding: 1rem;
+  border: 1px solid #d7d5d5;
+  box-shadow: 0 2px 3px #cccccc;
+  
+}
+.order-container .ingredient {
+  margin: 0 0.5rem;
+}

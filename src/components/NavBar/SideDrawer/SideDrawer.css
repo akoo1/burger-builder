@@ -22,9 +22,9 @@
   }
 }
 
-.open {
+.side-drawer-open {
   transform: translateX(0);
 }
-.close {
+.side-drawer-close {
   transform: translateX(-100%);
 }
