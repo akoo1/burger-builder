@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Alert } from 'reactstrap';
+import { connect } from 'react-redux';
 
+import './ContactData.css'
 import axios from '../../../Axios/axios-orders';
 import Spinner from '../../../components/UI/Spinner/Spinner';
-import './ContactData.css'
+
 
 class ContactData extends Component {
 
@@ -19,6 +21,7 @@ class ContactData extends Component {
     showAlert: false,
     alertMessage: ''
   }
+
 
   inputChangedHandler = (event, inputName) => {
     let form = this.state.contactData
@@ -47,11 +50,9 @@ class ContactData extends Component {
   formSubmitHandler = event => {
     event.preventDefault()
     this.inputValidation()
+
     
-    if (this.state.alertMessage === '') {
-      this.setState({ showAlert: true })
-    }
-    else {
+    if (this.state.alertMessage === ''){
       this.setState({ isLoading: true })
       const order = {
         ingredients: this.props.ingredients,
@@ -71,12 +72,15 @@ class ContactData extends Component {
           this.props.history.push('/')
         })
     }
+    else {
+      this.setState({ showAlert: true })
+    }
   }
 
   inputValidation = () => {
     let contactData = this.state.contactData
     let alertMessage = this.state.alertMessage
-    
+
     if (contactData.name.trim() === '') {
       alertMessage = alertMessage.concat('Name required. ')
     }
@@ -98,10 +102,6 @@ class ContactData extends Component {
 
 
   render() {
-
-    if (this.state.isLoading) {
-      contactForm = <Spinner />
-    }
 
     let contactForm = (
       <form onSubmit={this.formSubmitHandler}>
@@ -151,14 +151,23 @@ class ContactData extends Component {
       </form>
     )
 
+    if (this.state.isLoading) {
+      contactForm = <Spinner />
+    }
+
+
+
+
+
+
     let inputFeedback = null
+
     if (this.state.showAlert) {
       inputFeedback = (
         <Alert
           className='input-alert'
           color="danger"
           isOpen={this.state.showAlert}
-          // toggle={() => this.setState({ showAlert: false })}
         >
           {this.state.alertMessage}
         </Alert>
@@ -181,5 +190,13 @@ class ContactData extends Component {
 }
 
 
-export default ContactData;
+const mapStateToProps = state => {
+  return {
+    ingredients: state.ingredients,
+    totalPrice: state.totalPrice
+  }
+}
+
+
+export default connect(mapStateToProps)(ContactData);
 
