@@ -9,7 +9,7 @@ import ModalWindow from '../../components/UI/ModalWindow/ModalWindow';
 import * as actionTypes from '../../store/actions';
 
 
-class BurgerBuilder extends Component {
+export class BurgerBuilder extends Component {
 
   state = {
     // ingredients: {
