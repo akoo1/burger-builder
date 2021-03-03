@@ -29,7 +29,6 @@ const NavigationItems = (props) => {
         </li>
       </>
     )
-
   }
 
 
